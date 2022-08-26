@@ -73,7 +73,7 @@
 
 
 	<build>
-		<finalName>spring-boot-practice-kube</finalName>
+		<finalName>devops_intigration</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.asciidoctor</groupId>

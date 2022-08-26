@@ -1,4 +1,4 @@
 FROM openjdk:8-jdk-alpine
-ADD target/spring-boot-practice-kube.jar spring-boot-practice-kube.jar
+ADD target/devops_intigration.jar devops_intigration.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "spring-boot-practice-kube.jar"]
+ENTRYPOINT ["java", "-jar", "devops_intigration.jar"]
