@@ -5,7 +5,7 @@ spring:
         max-request-size: 10MB
     datasource:
         password: ${POSTGRES_PASSWORD}
-        url: jdbc:postgresql://${POSTGRES_HOST}:5432/postgresDBNew
+        url: jdbc:postgresql://${POSTGRES_HOST}:5432/postgresDbNew
         username: ${POSTGRES_USER}
     jpa:
         show-sql: true
