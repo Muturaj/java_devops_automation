@@ -13,7 +13,7 @@ public class RoundRobin {
     public RoundRobin(ArrayList<String> list) {
         this.list = new ArrayList<String>();
         this.list.addAll(list);
-        n=this.list.size();
+        n = this.list.size();
 
     }
 
@@ -24,31 +24,40 @@ public class RoundRobin {
 //            i=i%n;
 //            return list.get(0);
 //        }
-         j++;
-         i=j%n;
+        j++;
+        i = j % n;
         return list.get(i);
 
 
     }
 
     public static void main(String[] args) {
+        int i, m = 0, flag = 0;
+        int n = 2;//it is the number to be checked
+        m = n / 2;
+        if (n == 0 || n == 1) {
+            System.out.print(n + "is not a prime number");
+        } else {
+            for (i = 2; i <= m; i++) {
+                if (n % i == 0) {
+                    System.out.println(n + "is not prime number");
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0) {
+                System.out.println(n + "is prime number");
+            }
 
-        String hey="i am mutturaj deval timeout";
-        if(hey.contains("i am mutturaj deval timeout")) {
-            System.out.println(true);
         }
-        ArrayList<String> ls=new ArrayList<>();
-        ls.add("111");
-        ls.add("222");
-        ls.add("333");
-        RoundRobin r=new RoundRobin(ls);
-        for (int i=0;i<=10;i++) {
-
-
-        }
-
 
     }
 }
+
+
+
+
+
+
 // if we get to the end, start again
 
