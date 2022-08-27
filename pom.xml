@@ -67,11 +67,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-
-
 	</dependencies>
-
-
 	<build>
 		<finalName>devops_intigration_update</finalName>
 		<plugins>
@@ -114,5 +110,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
