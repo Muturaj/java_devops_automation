@@ -7,7 +7,7 @@ data:
   postgres_user: postgres
   postgres_password: password
   pg_host: postgres
-  pg_db: postgresDbNew
+  pg_db: employeeDB
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

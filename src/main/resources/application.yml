@@ -5,13 +5,13 @@ spring:
         max-request-size: 10MB
     datasource:
         password: ${POSTGRES_PASSWORD}
-        url: jdbc:postgresql://${POSTGRES_HOST}:5432/postgresDbNew
+        url: jdbc:postgresql://${POSTGRES_HOST}:5432/employeeDB
         username: ${POSTGRES_USER}
     jpa:
         show-sql: true
         format-sql: true
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect
