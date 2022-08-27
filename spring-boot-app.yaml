@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-postgres-sample
-        image: muttud/devops_intigration
+        image: muttud/devops_intigration_update
         imagePullPolicy: IfNotPresent
         env:
           - name: POSTGRES_USER

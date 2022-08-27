@@ -73,7 +73,7 @@
 
 
 	<build>
-		<finalName>devops_intigration</finalName>
+		<finalName>devops_intigration_update</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
