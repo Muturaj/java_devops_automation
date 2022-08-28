@@ -1,6 +1,5 @@
 package com.example.demo.nokia.controller;
 
-import com.example.demo.nokia.RR.RoundRobin;
 import com.example.demo.nokia.dto.Employee;
 import com.example.demo.nokia.entity.EmployeeEntity;
 import com.example.demo.nokia.repo.TestRepo;
@@ -19,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.ArrayList;
 
 //@RequiredArgsConstructor
 @RestController
@@ -34,12 +32,8 @@ public class TestController {
     @Autowired
     private  TestRepo testRepo;
 
-     int temp=0;
-     int i=temp;
-
     @PostMapping("/saveEmployee")
     public com.example.demo.nokia.jpastuff.Employee saveEmployee(@RequestBody com.example.demo.nokia.jpastuff.Employee employee) {
-
         return employeeService.saveEmpAddressDetails(employee);
 
     }
@@ -55,29 +49,9 @@ public class TestController {
 
     @GetMapping("/employee")
     public Employee demoCheck() {
-
         Employee employee=   employeeService.getEmployeeinfo();
-       String hostname= getTargetHostname();
-        System.out.println(hostname);
-//        ArrayList<String> ls=new ArrayList<>();
-//        ls.add("111");
-//        ls.add("222");
-//
-//        String targetHost = null;
-//        for (int i=0;i<=ls.size();i++) {
-//            RoundRobin r=new RoundRobin(ls);
-//           targetHost= r.next();
-//
-//        }
-//        System.out.println(targetHost);
-
-
-
-
         return employee;
     }
-
-
 
     @PostMapping(value = "/employee",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE},produces =  { MediaType.APPLICATION_JSON_VALUE} )
     public MessageResponse saveEmployee(@RequestPart(value ="employeeData",required = true) EmployeeRequest employeeData, MultipartFile employeefile) {
@@ -89,38 +63,11 @@ public class TestController {
     @GetMapping(value = "/downloadFile/{fileId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable Long fileId) {
         // Load file from database
-
         EmployeeEntity dbFile = employeeService.getFile(fileId);
-        final byte[] employeedata = dbFile.getEmployeedata();
-
-
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(dbFile.getFiletype()))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + dbFile.getFilename() + "\"")
                 .body(new ByteArrayResource(dbFile.getEmployeedata()));
     }
 
-  //  @PostConstruct
-    public String getTargetHostname() {
-        ArrayList<String> ls=new ArrayList<>();
-        ls.add("111");
-        ls.add("222");
-        ls.add("333");
-
-        RoundRobin r=new RoundRobin(ls);
-        String targetHost = null;
-         if(temp==ls.size()) {
-             temp=0;
-         }
-        for (i=temp;i<=ls.size();i++) {
-
-            targetHost = r.next(i);
-             i=temp++;
-            return targetHost;
-
-        }
-
-
-        return targetHost;
-    }
 }
