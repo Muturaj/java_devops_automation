@@ -3,12 +3,12 @@ pipeline {
 
     stages {
         stage('Hello') {
-             script {
-                    sh '''
-                    echo 'Hello as well'
-                    cat ${WORKSPACE}/kube/testing.txt
-                    '''
-                }
+            steps {
+                echo 'Hello as well' // Echo a greeting
+                
+                // Cat the contents of testing.txt in the workspace
+                sh 'cat ${WORKSPACE}/kube/testing.txt'
+            }
         }
     }
 }
