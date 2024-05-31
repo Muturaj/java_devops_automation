@@ -7,7 +7,7 @@ pipeline {
                 echo 'Hello as well' // Echo a greeting
                 
                 // Cat the contents of testing.txt in the workspace
-                sh 'cat ${WORKSPACE}/kube/testing.txt'
+                bat "type %WORKSPACE%\\kube\\testing.txt"
             }
         }
     }
