@@ -5,10 +5,14 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello as well' // Echo a greeting
-                echo 'Printing path ${WORKSPACE}'
+                echo "Printing path ${WORKSPACE}" // Use double quotes for variable interpolation
+                
                 // Cat the contents of testing.txt in the workspace
-                cat "${WORKSPACE}\\kube\\testing.txt"
+                script {
+                    bat "type \"${WORKSPACE}\\kube\\testing.txt\"" // Use bat for Windows
+                }
             }
         }
     }
 }
+
